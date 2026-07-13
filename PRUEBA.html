@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feliz Aniversario, Jenny</title>
+    <style>
+        /* --- ESTILOS GENERALES Y PALETA DE COLORES --- */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: 'Georgia', serif;
+            background-color: #fdf5f7; /* Fondo rosa pastel muy sutil */
+            color: #4a3b32;
+            text-align: center;
+            overflow-x: hidden;
+        }
+        section {
+            padding: 60px 20px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 1s ease;
+        }
+        section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        h1, h2 {
+            color: #d1495b; /* Rojo suave romántico */
+            margin-bottom: 20px;
+        }
+        p {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            max-width: 600px;
+            margin-bottom: 20px;
+        }
+
+        /* --- PANTALLA DE BIENVENIDA --- */
+        #bienvenida {
+            background: linear-gradient(135deg, #ffe3e8 0%, #fdf5f7 100%);
+            opacity: 1;
+            transform: none;
+        }
+        .btn-comenzar {
+            padding: 15px 40px;
+            font-size: 1.2rem;
+            background-color: #d1495b;
+            color: white;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(209, 73, 91, 0.3);
+            transition: transform 0.2s, background-color 0.2s;
+            text-decoration: none;
+            margin-top: 20px;
+        }
+        .btn-comenzar:hover {
+            transform: scale(1.05);
+            background-color: #b33949;
+        }
+
+        /* --- SECCIÓN VIDEO --- */
+        #video { background-color: #ffffff; }
+        .contenedor-video {
+            position: relative;
+            width: 100%;
+            max-width: 560px;
+            padding-bottom: 56.25%; /* Relación de aspecto 16:9 */
+            height: 0;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+        .contenedor-video iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* --- SECCIÓN CARTA --- */
+        #carta { background-color: #fdf5f7; }
+        .pergamino {
+            background-color: #fffdf9;
+            padding: 40px 30px;
+            border-radius: 8px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            border-left: 5px solid #d1495b;
+            max-width: 550px;
+            text-align: left;
+        }
+
+        /* --- SECCIÓN GALERÍA --- */
+        #galeria { background-color: #ffffff; }
+        .grid-galeria {
+            display: table;
+            width: 100%;
+            max-width: 700px;
+            margin: 0 auto;
+            border-collapse: separate;
+            border-spacing: 15px;
+        }
+        .fila-galeria {
+            display: table-row;
+        }
+        .foto-caja {
+            display: table-cell;
+            width: 50%;
+            background-color: #f3f3f3;
+            height: 250px;
+            vertical-align: middle;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            color: #888;
+            font-style: italic;
+        }
+
+        /* --- SECCIÓN LÍNEA DEL TIEMPO --- */
+        #linea-tiempo { background-color: #fdf5f7; }
+        .timeline {
+            position: relative;
+            max-width: 500px;
+            text-align: left;
+            margin-top: 30px;
+        }
+        .timeline-item {
+            padding: 20px 30px;
+            background-color: white;
+            position: relative;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+            border-left: 3px solid #d1495b;
+        }
+        .timeline-date {
+            font-weight: bold;
+            color: #d1495b;
+            margin-bottom: 5px;
+        }
+
+        /* --- SECCIÓN FINAL --- */
+        #final {
+            background: linear-gradient(to bottom, #ffffff, #ffe3e8);
+        }
+        .corazon {
+            font-size: 5rem;
+            color: #d1495b;
+            animation: latido 1.2s infinite;
+            margin-top: 20px;
+        }
+        @keyframes latido {
+            0% { transform: scale(1); }
+            20% { transform: scale(1.15); }
+            40% { transform: scale(1); }
+            60% { transform: scale(1.15); }
+            100% { transform: scale(1); }
+        }
+    </style>
+</head>
+<body>
+
+    <section id="bienvenida">
+        <h1>Bienvenida Jenny...</h1>
+        <p>Hace tres años comenzó algo que cambió mi vida para siempre.</p>
+        <button class="btn-comenzar" onclick="irA('#video')">Comenzar</button>
+    </section>
+
+    <section id="video">
+        <h2>Un mensaje para ti</h2>
+        <p>Preparé este video para recordarte algunos de nuestros mejores momentos.</p>
+        <div class="contenedor-video">
+            <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>
+        </div>
+    </section>
+
+    <section id="carta">
+        <h2>Mi Carta para Ti</h2>
+        <div class="pergamino">
+            <p>Querida Jenny,</p>
+            <p>Parece que fue ayer cuando empezamos a escribir esta historia, pero ya han pasado 3 años increíbles. Gracias por cada sonrisa, por tu apoyo incondicional y por ser mi compañera de vida.</p>
+            <p>En este tiempo he aprendido lo hermoso que es amar y ser amado por alguien tan maravillosa como tú...</p>
+        </div>
+    </section>
+
+    <section id="galeria">
+        <h2>Nuestros Momentos</h2>
+        <p>Una pequeña muestra de las tantas aventuras que hemos compartido.</p>
+        <div class="grid-galeria">
+            <div class="fila-galeria">
+                <div class="foto-caja">[ Foto de nuestro primer viaje ]</div>
+                <div class="foto-caja">[ Foto de aquella cita especial ]</div>
+            </div>
+            <div class="fila-galeria">
+                <div class="foto-caja">[ Nuestra foto favorita ]</div>
+                <div class="foto-caja">[ Una tarde cualquiera juntos ]</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="linea-tiempo">
+        <h2>Nuestra Historia</h2>
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-date">Año 1 - El Inicio</div>
+                <p>Donde todo comenzó, las primeras citas, los nervios y el descubrir lo bien que la pasábamos juntos.</p>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-date">Año 2 - Creciendo Juntos</div>
+                <p>Superando retos, compartiendo más de nuestras vidas y consolidando este amor tan bonito.</p>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-date">Año 3 - Complicidad Absoluta</div>
+                <p>Un año lleno de madurez, risas interminables y la certeza de que quiero seguir caminando a tu lado.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="final">
+        <h2>"Gracias por estos tres años"</h2>
+        <p>Esto es solo el comienzo de todo lo que nos espera.</p>
+        <div class="corazon">❤️</div>
+    </section>
+
+    <script>
+        // Función para scroll suave al hacer clic en Comenzar
+        function irA(id) {
+            document.querySelector(id).scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Efecto de aparición gradual (Scroll Reveal) al bajar la página
+        const secciones = document.querySelectorAll('section');
+        const opciones = { threshold: 0.2 };
+
+        const observador = new IntersectionObserver(function(entradas, observador) {
+            entradas.forEach(entrada => {
+                if(entrada.isIntersecting) {
+                    entrada.target.classList.add('visible');
+                }
+            });
+        }, opciones);
+
+        secciones.forEach(seccion => {
+            observador.observe(seccion);
+        });
+    </script>
+</body>
+</html>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Feliz Aniversario, Jenny</title>
+    <title>Feliz Aniversario, Jenn</title>
     <style>
         /* --- ESTILOS GENERALES Y PALETA DE COLORES --- */
         * {
@@ -13,7 +13,7 @@
         }
         body {
             font-family: 'Georgia', serif;
-            background-color: #fdf5f7; /* Fondo rosa pastel muy sutil */
+            background-color: #fdf5f7; /* Fondo rosa pastel sutil */
             color: #4a3b32;
             text-align: center;
             overflow-x: hidden;
@@ -62,23 +62,27 @@
             transition: transform 0.2s, background-color 0.2s;
             text-decoration: none;
             margin-top: 20px;
+            display: inline-block;
         }
         .btn-comenzar:hover {
             transform: scale(1.05);
             background-color: #b33949;
         }
 
-        /* --- SECCIÓN VIDEO --- */
+        /* --- SECCIÓN VIDEO (REPRODUCCIÓN CON VIMEO) --- */
         #video { background-color: #ffffff; }
+        
         .contenedor-video {
             position: relative;
             width: 100%;
             max-width: 560px;
-            padding-bottom: 56.25%; /* Relación de aspecto 16:9 */
+            padding-bottom: 56.25%; /* Relación de aspecto estándar 16:9 */
             height: 0;
             border-radius: 12px;
             overflow: hidden;
             box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            margin-top: 20px;
+            margin-bottom: 15px;
         }
         .contenedor-video iframe {
             position: absolute;
@@ -87,6 +91,20 @@
             width: 100%;
             height: 100%;
             border: none;
+        }
+        .btn-backup {
+            font-size: 0.85rem;
+            color: #8a7a7a;
+            background: none;
+            border: none;
+            text-decoration: underline;
+            cursor: pointer;
+            transition: color 0.2s;
+            display: inline-block;
+            margin-bottom: 30px;
+        }
+        .btn-backup:hover {
+            color: #d1495b;
         }
 
         /* --- SECCIÓN CARTA --- */
@@ -130,23 +148,24 @@
         #linea-tiempo { background-color: #fdf5f7; }
         .timeline {
             position: relative;
-            max-width: 500px;
+            max-width: 600px;
             text-align: left;
             margin-top: 30px;
         }
         .timeline-item {
-            padding: 20px 30px;
+            padding: 25px 30px;
             background-color: white;
             position: relative;
             border-radius: 8px;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
             box-shadow: 0 3px 10px rgba(0,0,0,0.05);
-            border-left: 3px solid #d1495b;
+            border-left: 4px solid #d1495b;
         }
         .timeline-date {
             font-weight: bold;
+            font-size: 1.3rem;
             color: #d1495b;
-            margin-bottom: 5px;
+            margin-bottom: 10px;
         }
 
         /* --- SECCIÓN FINAL --- */
@@ -171,26 +190,41 @@
 <body>
 
     <section id="bienvenida">
-        <h1>Bienvenida Jenny...</h1>
+        <h1>Bienvenida Jenn...</h1>
         <p>Hace tres años comenzó algo que cambió mi vida para siempre.</p>
         <button class="btn-comenzar" onclick="irA('#video')">Comenzar</button>
     </section>
 
     <section id="video">
         <h2>Un mensaje para ti</h2>
-        <p>Preparé este video para recordarte algunos de nuestros mejores momentos.</p>
+        <p>Preparé un video muy especial para recordar nuestros mejores momentos.</p>
+        
         <div class="contenedor-video">
-            <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>
+            <iframe 
+                src="https://player.vimeo.com/video/1209541797?badge=0&autopause=0&player_id=0&app_id=58479" 
+                allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" 
+                title="Video de Aniversario para Jenn">
+            </iframe>
         </div>
+
+        <a href="https://photos.google.com/share/AF1QipM2USVboQ3jljHM4bBDdTuvcJY5Ls51j2c9M-KmovNNUNbd8apVpR9fdAsFpSLV3Q/photo/AF1QipNkHvuuPcR1m_VLcmBf6CN3-tRJlzBYwglhIgLj?key=Zlp1b0pTRXBLampLMW5iaHpnVU5YQ0tjMEk0d2tB" target="_blank" rel="noopener noreferrer" class="btn-backup">
+            Si no se ve el video, haz clic aquí
+        </a>
+
+        <br>
+        <button class="btn-comenzar" onclick="irA('#carta')" style="background-color: transparent; color: #d1495b; box-shadow: none; border: 1px solid #d1495b;">
+            Continuar leyendo ↓
+        </button>
     </section>
 
     <section id="carta">
         <h2>Mi Carta para Ti</h2>
         <div class="pergamino">
-            <p>Querida Jenny,</p>
+            <p>Querida Jenn,</p>
             <p>Parece que fue ayer cuando empezamos a escribir esta historia, pero ya han pasado 3 años increíbles. Gracias por cada sonrisa, por tu apoyo incondicional y por ser mi compañera de vida.</p>
             <p>En este tiempo he aprendido lo hermoso que es amar y ser amado por alguien tan maravillosa como tú...</p>
         </div>
+        <button class="btn-comenzar" onclick="irA('#galeria')">Ver Fotos</button>
     </section>
 
     <section id="galeria">
@@ -198,32 +232,34 @@
         <p>Una pequeña muestra de las tantas aventuras que hemos compartido.</p>
         <div class="grid-galeria">
             <div class="fila-galeria">
-                <div class="foto-caja">[ Foto de nuestro primer viaje ]</div>
-                <div class="foto-caja">[ Foto de aquella cita especial ]</div>
+                <div class="foto-caja" style="background: none;"><img src="1.jpeg" alt="Momento 1" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px;"></div>
+                <div class="foto-caja" style="background: none;"><img src="2.jpeg" alt="Momento 2" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px;"></div>
             </div>
             <div class="fila-galeria">
-                <div class="foto-caja">[ Nuestra foto favorita ]</div>
-                <div class="foto-caja">[ Una tarde cualquiera juntos ]</div>
+                <div class="foto-caja" style="background: none;"><img src="3.jpeg" alt="Momento 3" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px;"></div>
+                <div class="foto-caja" style="background: none;"><img src="4.jpeg" alt="Momento 4" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px;"></div>
             </div>
         </div>
+        <button class="btn-comenzar" onclick="irA('#linea-tiempo')">Nuestra Historia</button>
     </section>
 
     <section id="linea-tiempo">
         <h2>Nuestra Historia</h2>
         <div class="timeline">
             <div class="timeline-item">
-                <div class="timeline-date">Año 1 - El Inicio</div>
-                <p>Donde todo comenzó, las primeras citas, los nervios y el descubrir lo bien que la pasábamos juntos.</p>
+                <div class="timeline-date">❤️ Año 1 - El Inicio</div>
+                <p>Donde todo comenzó: las primeras citas, los nervios y el descubrir lo bien que la pasábamos juntos. Sin saberlo, ese primer "hola" se convertiría en la historia más bonita de mi vida.</p>
             </div>
             <div class="timeline-item">
-                <div class="timeline-date">Año 2 - Creciendo Juntos</div>
-                <p>Superando retos, compartiendo más de nuestras vidas y consolidando este amor tan bonito.</p>
+                <div class="timeline-date">❤️ Año 2 - Creciendo Juntos</div>
+                <p>Aprendimos a superar retos, a celebrar nuestros logros y a apoyarnos en los momentos difíciles. Cada experiencia nos hizo más fuertes y confirmó que juntos somos un gran equipo.</p>
             </div>
             <div class="timeline-item">
-                <div class="timeline-date">Año 3 - Complicidad Absoluta</div>
-                <p>Un año lleno de madurez, risas interminables y la certeza de que quiero seguir caminando a tu lado.</p>
+                <div class="timeline-date">❤️ Año 3 - Un Nuevo Capítulo</div>
+                <p>Hoy comienza nuestro tercer año juntos. No sé qué aventuras nos esperan, qué sueños cumpliremos o qué lugares conoceremos, pero hay algo de lo que estoy completamente seguro: quiero seguir escribiendo esta historia contigo. Que este nuevo capítulo esté lleno de sonrisas, aprendizajes, viajes, abrazos y recuerdos que algún día miraremos con la misma felicidad con la que hoy recordamos nuestros primeros dos años. Porque siento que lo mejor de nosotros aún está por venir. ❤️</p>
             </div>
         </div>
+        <button class="btn-comenzar" onclick="irA('#final')">Continuar</button>
     </section>
 
     <section id="final">
@@ -233,14 +269,14 @@
     </section>
 
     <script>
-        // Función para scroll suave al hacer clic en Comenzar
+        // Función nativa para desplazamiento suave (scroll)
         function irA(id) {
             document.querySelector(id).scrollIntoView({ behavior: 'smooth' });
         }
 
-        // Efecto de aparición gradual (Scroll Reveal) al bajar la página
+        // Lógica de Scroll Reveal con IntersectionObserver
         const secciones = document.querySelectorAll('section');
-        const opciones = { threshold: 0.2 };
+        const opciones = { threshold: 0.15 };
 
         const observador = new IntersectionObserver(function(entradas, observador) {
             entradas.forEach(entrada => {
